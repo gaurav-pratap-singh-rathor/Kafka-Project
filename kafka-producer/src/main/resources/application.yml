@@ -1,0 +1,36 @@
+server:
+  port: 9191
+
+#spring:
+#  kafka:
+#    producer:
+#      bootstrap-servers: localhost:9092
+
+
+spring:
+  kafka:
+    producer:
+      bootstrap-servers: pkc-921jm.us-east-2.aws.confluent.cloud:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        schema:
+          registry:
+            urt: https://psrc-em25q.us-east-2.aws.confluent.cloud
+        basic:
+          auth:
+            credentials:
+              source: USER_INFO
+            user:
+              info: KRFTHVIT23HDVH3O:wt63qR4N+FzJRq1pi7+O4gJnHZTjH/BNPKM6yWRJWKebvq3QQ8rgzQ50djJbVZOj
+        sasl:
+          jaas:
+            config: org.apache.kafka.common.security.plain.PlainLoginModule
+              required username="U4BY5HONCZQNSPN5" password="qgPOTfPRzZ7bh5Lvs4eTv1Lrrfxue88a10BtQIU6kYUQmyRtDDtdglchnMTOk6sy";
+          mechanism: PLAIN
+        security:
+          protocol: SASL-SSL
+        ssl:
+          endpoint:
+            identification:
+              algorithm: https
